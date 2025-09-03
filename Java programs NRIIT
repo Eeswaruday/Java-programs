@@ -1,0 +1,29 @@
+class A
+
+int 1,b;
+
+{ 1=10;b=20;
+
+A(int u,int v)
+
+l=u;b=v;
+
+int area(
+
+return 1*b:
+
+class overconstructdemo
+
+public static void main(String args[])
+
+A al=new A(O; int
+
+rl=al.area();
+
+System.out.println("The area is: "+r1);A a2=new
+
+A(30,40);
+
+int r2=a2.area(); System.out.println("The area is: "+r2);
+}
+}
