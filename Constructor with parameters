@@ -1,0 +1,21 @@
+class A {
+    int l, b;
+
+    // A constructor with parameters
+    A(int u, int v) {
+        l = u;
+        b = v;
+    }
+
+    int area() {
+        return l * b;
+    }
+}
+
+class constructordemo {
+    public static void main(String args[]) {
+        A a1 = new A(10, 20);
+        int r = a1.area();
+        System.out.println("The area is: " + r);
+    }
+}
