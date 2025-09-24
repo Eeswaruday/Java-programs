@@ -1,0 +1,22 @@
+class A {
+    int l = 10, b = 20;
+
+    int area() {
+        return l * b;
+    }
+
+    int area(int l, int b) {
+        return l * b;
+    }
+}
+
+class overmethoddemo {
+    public static void main(String args[]) {
+        A al = new A(); // Corrected variable declaration
+        int r1 = al.area();
+        System.out.println("The area is: " + r1);
+
+        int r2 = al.area(5, 20);
+        System.out.println("The area is: " + r2);
+    }
+}
