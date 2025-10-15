@@ -1,0 +1,32 @@
+class Task implements Runnable {
+    String msg;
+    int time;
+
+    Task(String m, int t) {
+        msg = m;
+        time = t;
+    }
+
+    public void run() {
+        try {
+            while (true) {
+                System.out.println(msg);
+                Thread.sleep(time);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new Task("Good morning", 1000));
+        Thread t2 = new Thread(new Task("Hello Panda", 2000));
+        Thread t3 = new Thread(new Task("Welcome Panda", 3000));
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
