@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class BubbleDemo {
+    public static void main(String args[]) {
+        int i, j, temp, n;
+        int a[] = new int[20];
+
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter total number of elements: ");
+        n = s.nextInt();
+
+        System.out.println("Enter elements:");
+        for (i = 0; i < n; i++) {
+            a[i] = s.nextInt();
+        }
+
+        // Bubble sort logic
+        for (i = 0; i < n - 1; i++) {
+            for (j = 0; j < n - i - 1; j++) {
+                if (a[j] > a[j + 1]) {
+                    temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+
+        // Display sorted elements
+        System.out.println("The sorted elements are:");
+        for (i = 0; i < n; i++) {
+            System.out.println(a[i]);
+        }
+
+        s.close();
+    }
+}
