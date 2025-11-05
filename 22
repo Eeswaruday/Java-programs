@@ -1,0 +1,86 @@
+// Program to demonstrate Producer-Consumer problem using threads
+class Basket {
+    int apple;
+    boolean full = false;
+
+    // Producer puts apple into basket
+    synchronized void put(int x) {
+        while (full) {
+            try {
+                wait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        apple = x;
+        full = true;
+        System.out.println("Producer puts apple: " + x);
+        notify();
+    }
+
+    // Consumer takes apple from basket
+    synchronized void get() {
+        while (!full) {
+            try {
+                wait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        System.out.println("Consumer eats apple: " + apple);
+        full = false;
+        notify();
+    }
+}
+
+// Producer Thread
+class Producer extends Thread {
+    Basket b;
+
+    Producer(Basket b) {
+        this.b = b;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            b.put(i);
+            try {
+                Thread.sleep(500);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+// Consumer Thread
+class Consumer extends Thread {
+    Basket b;
+
+    Consumer(Basket b) {
+        this.b = b;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            b.get();
+            try {
+                Thread.sleep(500);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+// Main Class
+public class SimplePC {
+    public static void main(String args[]) {
+        Basket basket = new Basket();
+        Producer p = new Producer(basket);
+        Consumer c = new Consumer(basket);
+
+        p.start();
+        c.start();
+    }
+}
