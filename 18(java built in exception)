@@ -1,0 +1,55 @@
+// Exercise - 6
+
+import java.io.IOException;
+
+// Custom Exception
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
+
+class EasyExceptionDemo {
+    public static void main(String[] args) {
+
+        // 1. Arithmetic Exception
+        try {
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Caught Arithmetic: " + e.getMessage());
+        }
+
+        // 2. Array Index Exception
+        try {
+            int[] arr = {1, 2, 3};
+            System.out.println(arr[3]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught Array: " + e.getMessage());
+        }
+
+        // 3. Custom Exception
+        try {
+            withdraw(500, 700);
+        } catch (InsufficientFundsException e) {
+            System.out.println("Caught Custom: " + e.getMessage());
+        }
+
+        // 4. Checked Exception
+        try {
+            readFile("nonexistent.txt");
+        } catch (IOException e) {
+            System.out.println("Caught IOException: " + e.getMessage());
+        }
+    }
+
+    public static void withdraw(double balance, double amount)
+            throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException("Not enough balance available!");
+        }
+    }
+
+    public static void readFile(String fileName) throws IOException {
+        throw new IOException("Error reading file: " + fileName);
+    }
+}
