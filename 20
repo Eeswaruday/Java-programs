@@ -1,0 +1,86 @@
+// Program to create threads by extending Thread class
+// First thread displays "Good Morning" every 1 second
+// Second thread displays "Hello" every 2 seconds
+// Third thread displays "Welcome" every 3 seconds
+
+class T1 extends Thread {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Good Morning");
+                Thread.sleep(1000); // 1 second
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class T2 extends Thread {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Hello");
+                Thread.sleep(2000); // 2 seconds
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class T3 extends Thread {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Welcome");
+                Thread.sleep(3000); // 3 seconds
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+public class ThreadDemo {
+    public static void main(String args[]) {
+        new T1().start();
+        new T2().start();
+        new T3().start();
+    }
+}
+// Program to create threads by implementing Runnable interface
+// Repeats the same task as above using Runnable
+
+class Task implements Runnable {
+    String msg;
+    int time;
+
+    Task(String m, int t) {
+        msg = m;
+        time = t;
+    }
+
+    public void run() {
+        try {
+            while (true) {
+                System.out.println(msg);
+                Thread.sleep(time);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+public class RunnableDemo {
+    public static void main(String args[]) {
+        Thread t1 = new Thread(new Task("Good Morning", 1000));
+        Thread t2 = new Thread(new Task("Hello", 2000));
+        Thread t3 = new Thread(new Task("Welcome", 3000));
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
