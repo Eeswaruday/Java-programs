@@ -1,0 +1,15 @@
+Class A {
+int l,b;
+A(int u , int v){
+    l=u;
+    b=v; }
+Int area(){
+ return l*b;
+}}
+Class constructor demo{
+Public Static void main(string arg[]){
+A al=new A (10,20);
+int r=al.area();
+System.out.println("The area is:"+r);
+}
+}
