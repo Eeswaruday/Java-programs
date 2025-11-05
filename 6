@@ -1,0 +1,60 @@
+// (i) No return type and without parameter list
+class A {
+    int l = 10, b = 20;
+
+    void display() {
+        System.out.println(l);
+        System.out.println(b);
+    }
+}
+
+class MethodDemo1 {
+    public static void main(String args[]) {
+        A a1 = new A();
+        a1.display();
+    }
+}
+// (ii) No return type and with parameter list
+class A {
+    void display(int l, int b) {
+        System.out.println(l);
+        System.out.println(b);
+    }
+}
+
+class MethodDemo2 {
+    public static void main(String args[]) {
+        A a1 = new A();
+        a1.display(10, 20);
+    }
+}
+// (iii) Return type and without parameter list
+class A {
+    int l = 10, b = 20;
+
+    int area() {
+        return l * b;
+    }
+}
+
+class MethodDemo3 {
+    public static void main(String args[]) {
+        A a1 = new A();
+        int y = a1.area();
+        System.out.println("The area is: " + y);
+    }
+}
+// (iv) Return type and with parameter list
+class A {
+    int area(int l, int b) {
+        return l * b;
+    }
+}
+
+class MethodDemo4 {
+    public static void main(String args[]) {
+        A a1 = new A();
+        int y = a1.area(10, 20);
+        System.out.println("The area is: " + y);
+    }
+}
