@@ -1,0 +1,27 @@
+// Parent class
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+// Child class inheriting from Animal
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Main class must be named 'Main' for CodeChef
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+
+        // Calling method from parent class
+        myDog.eat();
+
+        // Calling method from child class
+        myDog.bark();
+    }
+}
+
