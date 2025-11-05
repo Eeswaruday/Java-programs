@@ -1,0 +1,21 @@
+// Program to use StringBuffer to delete and remove characters
+
+class StringBufferDemo {
+    public static void main(String args[]) {
+        // Example 1: Delete a range of characters
+        StringBuffer sb1 = new StringBuffer("Hello World");
+        sb1.delete(0, 6); // deletes "Hello "
+        System.out.println(sb1);
+
+        // Example 2: Delete entire content
+        StringBuffer sb2 = new StringBuffer("Same content");
+        System.out.println(sb2);
+        sb2.delete(0, sb2.length());
+        System.out.println(sb2);
+
+        // Example 3: Delete a single character at specific position
+        StringBuffer sb3 = new StringBuffer("Hello World");
+        sb3.deleteCharAt(0); // deletes 'H'
+        System.out.println(sb3);
+    }
+}
