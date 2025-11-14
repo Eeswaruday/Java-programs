@@ -1,0 +1,20 @@
+// Example for "super" keyword
+class Animal {
+    String colour = "White";
+}
+
+class Pet extends Animal {
+    String colour = "Black";
+
+    void displayColor() {
+        System.out.println("Pet color: " + colour);
+        System.out.println("Animal color: " + super.colour);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Pet p = new Pet();
+        p.displayColor();
+    }
+}
